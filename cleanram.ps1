@@ -218,7 +218,8 @@ public class Win32 {
     } else {
         $null = Read-Host
     }
-
-    Write-Host "[*] Redirecting back to Techku Portal..." -ForegroundColor Gray
-    Invoke-RestMethod "https://raw.githubusercontent.com/Digitalisme/PowerShell-Repository-for-Techku/refs/heads/main/home.ps1" | Invoke-Expression
+    if (-not $global:TechkuPortalActive) {
+        Write-Host "[*] Redirecting back to Techku Portal..." -ForegroundColor Gray
+        Invoke-RestMethod "https://raw.githubusercontent.com/Digitalisme/PowerShell-Repository-for-Techku/refs/heads/main/home.ps1" | Invoke-Expression
+    }
 }
