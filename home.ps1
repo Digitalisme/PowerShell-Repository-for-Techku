@@ -146,8 +146,8 @@
                     } else {
                         $null = Read-Host
                     }
-                # }
-            }
+                }
+            # }
         } else {
             Clear-Host
             Write-Host "Exiting Techku Portal. Goodbye!" -ForegroundColor Yellow
