@@ -127,17 +127,13 @@
             Write-Host "=======================================================" -ForegroundColor Cyan
             Write-Host ""
             
-            # $localPath = Join-Path $PSScriptRoot "cleanram.ps1"
-            # if ($PSScriptRoot -and (Test-Path $localPath)) {
-            #     Write-Host "[*] Executing local cleanram.ps1..." -ForegroundColor Gray
-            #     & $localPath
-            # } else {
+
                 Write-Host "[*] Fetching cleanram.ps1 from Techku portal..." -ForegroundColor Gray
                 try {
-                    $scriptContent = Invoke-RestMethod -Uri "https://raw.githubusercontent.com/Digitalisme/PowerShell-Repository-for-Techku/refs/heads/main/cleanram.ps" -ErrorAction Stop
+                    $scriptContent = Invoke-RestMethod -Uri "https://raw.githubusercontent.com/Digitalisme/PowerShell-Repository-for-Techku/refs/heads/main/cleanram.ps1" -ErrorAction Stop
                     Invoke-Expression $scriptContent
                 } catch {
-                    Write-Host "[!] Error: Failed to download cleanram.ps1 from https://raw.githubusercontent.com/Digitalisme/PowerShell-Repository-for-Techku/refs/heads/main/cleanram.ps" -ForegroundColor Red
+                    Write-Host "[!] Error: Failed to download cleanram.ps1 from https://raw.githubusercontent.com/Digitalisme/PowerShell-Repository-for-Techku/refs/heads/main/cleanram.ps1" -ForegroundColor Red
                     Write-Host "    Details: $($_.Exception.Message)" -ForegroundColor Red
                     Write-Host ""
                     Write-Host "Press any key to return to menu..." -ForegroundColor Gray
@@ -147,7 +143,6 @@
                         $null = Read-Host
                     }
                 }
-            # }
         } else {
             Clear-Host
             Write-Host "Exiting Techku Portal. Goodbye!" -ForegroundColor Yellow
