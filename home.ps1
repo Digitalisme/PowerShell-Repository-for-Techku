@@ -124,7 +124,7 @@
         Write-Host "=======================================================" -ForegroundColor Cyan
         Write-Host ""
         
-        $localPath = Join-Path $PSScriptRoot "cleanram.ps1"
+        $localPath = Join-Path $PSScriptRoot "https://raw.githubusercontent.com/Digitalisme/PowerShell-Repository-for-Techku/refs/heads/main/cleanram.ps1"
         if ($PSScriptRoot -and (Test-Path $localPath)) {
             Write-Host "[*] Executing local cleanram.ps1..." -ForegroundColor Gray
             & $localPath
