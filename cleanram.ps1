@@ -15,6 +15,7 @@
     Write-Host "            PowerShell Edition (P/Invoke)              " -ForegroundColor Cyan
     Write-Host "=======================================================" -ForegroundColor Cyan
     Write-Host "Created by Roland Vincent" -ForegroundColor Gray
+    Write-Host "Modified by Techku for Powershell running" -ForegroundColor Gray
     Write-Host ""
 
     if (-not $isAdmin) {
@@ -208,4 +209,16 @@ public class Win32 {
         }
         Write-Host "=======================================================" -ForegroundColor Cyan
     }
+        Write-Host ""
+    Write-Host "Press any key to return to Techku Portal..." -ForegroundColor Gray
+    $interactive = $true
+    try { $null = $Host.UI.RawUI.KeyAvailable } catch { $interactive = $false }
+    if ($interactive) {
+        $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+    } else {
+        $null = Read-Host
+    }
+
+    Write-Host "[*] Redirecting back to Techku Portal..." -ForegroundColor Gray
+    Invoke-RestMethod "https://raw.githubusercontent.com/Digitalisme/PowerShell-Repository-for-Techku/refs/heads/main/home.ps1" | Invoke-Expression
 }
