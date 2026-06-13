@@ -457,7 +457,7 @@
                 }
                 else {
                     $scoreStr = $global:Score.ToString().PadLeft(6, '0')
-                    $line += "$(Get-AnsiColor 255 255 255) SKOR: $scoreStr        $Reset"
+                    $line += "$(Get-AnsiColor 255 255 255) SKOR: $scoreStr       $Reset"
                 }
             }
             else {
@@ -494,19 +494,21 @@
             }
             elseif ($y -eq 7) {
                 $scoreStr = $global:Score.ToString().PadLeft(6, '0')
-                $line += "  $(Get-AnsiColor 255 255 0)$scoreStr$Reset     $uiColor║$Reset"
+                $line += "  $(Get-AnsiColor 255 255 0)$scoreStr$Reset    $uiColor║$Reset"
             }
             elseif ($y -eq 8) {
                 $line += " LEVEL:      $uiColor║$Reset"
             }
             elseif ($y -eq 9) {
-                $line += "  $(Get-AnsiColor 0 255 100)$($global:Level)$Reset          $uiColor║$Reset"
+                $levelStr = $global:Level.ToString().PadRight(10)
+                $line += "  $(Get-AnsiColor 0 255 100)$levelStr$Reset$uiColor║$Reset"
             }
             elseif ($y -eq 10) {
                 $line += " BARIS:      $uiColor║$Reset"
             }
             elseif ($y -eq 11) {
-                $line += "  $(Get-AnsiColor 255 100 255)$($global:LinesCleared)$Reset          $uiColor║$Reset"
+                $linesStr = $global:LinesCleared.ToString().PadRight(10)
+                $line += "  $(Get-AnsiColor 255 100 255)$linesStr$Reset$uiColor║$Reset"
             }
             elseif ($y -eq 12) {
                 $line += "════════════$uiColor║$Reset"
@@ -515,22 +517,22 @@
                 $line += " KONTROL:    $uiColor║$Reset"
             }
             elseif ($y -eq 14) {
-                $line += " ←→ / AD:Kiri$uiColor║$Reset"
+                $line += " ←→/AD: Kiri$uiColor║$Reset"
             }
             elseif ($y -eq 15) {
-                $line += " ↑  / W :Putar$uiColor║$Reset"
+                $line += " ↑/W: Putar  $uiColor║$Reset"
             }
             elseif ($y -eq 16) {
-                $line += " ↓  / S :Turun$uiColor║$Reset"
+                $line += " ↓/S: Turun  $uiColor║$Reset"
             }
             elseif ($y -eq 17) {
-                $line += " Spasi  :Jatuh$uiColor║$Reset"
+                $line += " Spasi:Jatuh $uiColor║$Reset"
             }
             elseif ($y -eq 18) {
-                $line += " C      :Hold $uiColor║$Reset"
+                $line += " C: Simpan   $uiColor║$Reset"
             }
             elseif ($y -eq 19) {
-                $line += " P:Pause Q:Out$uiColor║$Reset"
+                $line += "P:Jeda Q:Out $uiColor║$Reset"
             }
             else {
                 $line += "            $uiColor║$Reset"
