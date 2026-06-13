@@ -466,7 +466,7 @@
                     if ($cell -eq "") {
                         $line += $emptyCell
                     }
-                    elseif ($cell.StartsWith($([char]27))) {
+                    elseif ($cell.Contains("░░")) {
                         $line += "$cell$Reset"
                     }
                     else {
